@@ -10796,6 +10796,7 @@ Main = (function()
 	Main.LoadModule = function(name)
 		print('Load Module')
 		if Main.Elevated then -- If you don't have filesystem api then ur outta luck tbh
+			print('Elevated')
 			local control
 			
 			if EmbeddedModules then -- Offline Modules
@@ -10811,6 +10812,7 @@ Main = (function()
 			Apps[name] = moduleData
 			return moduleData
 		else
+			print("Couldn't elevate")
 			local module = script:WaitForChild("Modules"):WaitForChild(name,2)
 			if not module then Main.Error("CANNOT FIND MODULE "..name) end
 			
@@ -10828,7 +10830,9 @@ Main = (function()
 		print('Load Modules')
 		for i,v in pairs(Main.ModuleList) do
 			local s,e = pcall(Main.LoadModule,v)
+			print('Loading Modules')
 			if not s then
+				warn('Failed to load')
 				Main.Error("FAILED LOADING " .. v .. " CAUSE " .. e)
 			end
 		end
