@@ -10767,6 +10767,7 @@ Main = (function()
 	}
 	
 	Main.GetInitDeps = function()
+		print('Get Init Deps')
 		return {
 			Main = Main,
 			Lib = Lib,
