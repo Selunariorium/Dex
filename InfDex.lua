@@ -95,6 +95,7 @@ local Explorer, Properties, ScriptViewer, Notebook -- Major Apps
 local API,RMD,env,service,plr,create,createSimple -- Main Locals
 
 local function initDeps(data)
+	print(data)
 	Main = data.Main
 	Lib = data.Lib
 	Apps = data.Apps
@@ -10792,6 +10793,7 @@ Main = (function()
 	end
 	
 	Main.LoadModule = function(name)
+		print('Load Module')
 		if Main.Elevated then -- If you don't have filesystem api then ur outta luck tbh
 			local control
 			
@@ -10822,6 +10824,7 @@ Main = (function()
 	end
 	
 	Main.LoadModules = function()
+		print('Load Modules')
 		for i,v in pairs(Main.ModuleList) do
 			local s,e = pcall(Main.LoadModule,v)
 			if not s then
