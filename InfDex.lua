@@ -10825,7 +10825,7 @@ Main = (function()
 		for i,v in pairs(Main.ModuleList) do
 			local s,e = pcall(Main.LoadModule,v)
 			if not s then
-				Main.Error("FAILED LOADING " + v + " CAUSE " + e)
+				Main.Error("FAILED LOADING " .. v .. " CAUSE " .. e)
 			end
 		end
 		
