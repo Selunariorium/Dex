@@ -1,4 +1,4 @@
-shared.message = '';
+shared.message = 'Simon says counter.';
 local counterids: table = {
 	'rbxassetid://13532562418',
 	'rbxassetid://15311685628'
@@ -23,7 +23,7 @@ local func: (Player) -> () = function(v: Player): ()
 				if verylegit then print('naw') return end
 				verylegit = true;
 				verylegit = false;
-				game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(shared.message or 'real', 'All');
+				game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(shared.message or 'Simon says counter.', 'All');
 			end;
 		end);
 	end;
