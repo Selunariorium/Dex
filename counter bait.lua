@@ -32,13 +32,13 @@ end
 for i: number, v: Player in game:GetService('Players'):GetPlayers() do
 	func(v)
 	v.CharacterAdded:Connect(func)
-	table.insert(v.Name, players)
+	table.insert(players, v.Name)
 end
 
 game:GetService('Players').PlayerAdded:Connect(function()
-	if v ~= game:GetService('Players').LocalPlayer and not table.find(v.Name, players) then
+	if v ~= game:GetService('Players').LocalPlayer and not table.find(players, v.Name) then
 		func(v)
 		v.CharacterAdded:Connect(func)
-		table.insert(v.Name, players)
+		table.insert(players, v.Name)
 	end
 end)
