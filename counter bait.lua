@@ -17,12 +17,9 @@ local func: (Player) -> () = function(v: Player): ()
     if v ~= game.Players.LocalPlayer then
         v.Character.Humanoid.AnimationPlayed:Connect(function(anim: Animation): ()
             if isAlive(game.Players.LocalPlayer) and table.find(counterids, anim.Animation.AnimationId) and (v.Character.PrimaryPart.Position - game:GetService('Players').LocalPlayer.Character.PrimaryPart.Position).Magnitude <= shared.Range then
-                if verylegit then return print('naw') end;
-                verylegit = true;
-                task.delay(0.05, function()
-                    verylegit = false;
-                    game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(shared.message or 'real', 'All');
-                end)
+                
+               verylegit = false;
+                 game:GetService('ReplicatedStorage').DefaultChatSystemChatEvents.SayMessageRequest:FireServer(shared.message or 'real', 'All');
             end;
         end);
     end;
